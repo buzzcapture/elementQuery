@@ -1,0 +1,21 @@
+{
+  "name": "element-query",
+  "version": "1.0.0",
+  "description": "An element query polyfill you can use today.",
+  "license": "MIT",
+  "author": {
+    "name": "Tyson Matanich"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buzzcapture/elementQuery.git"
+  },
+
+  "_id": "element-query@1.0.0",
+  "_shasum": "eb856d7900ffb61e51a8e0d4fc3f459d1c65ced1",
+  "_from": "https://github.com/buzzcapture/elementQuery/archive/master.tar.gz",
+  "_resolved": "https://github.com/buzzcapture/elementQuery/archive/master.tar.gz",
+
+  "readmeFilename": "README.md"
+}
