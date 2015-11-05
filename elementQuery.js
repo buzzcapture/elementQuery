@@ -16,8 +16,21 @@
   cssRules = null;
 
   function setCssRules () {
-    if (document.styleSheets[0]) {
-      cssRules = (document.styleSheets[0].cssRules !== undefined) ? "cssRules" : "rules";
+    var i;
+
+    // Find a stylesheet which has cssRules or rules property.
+    for (i = 0; i < document.styleSheets.length; i++) {
+      try {
+        cssRules = typeof document.styleSheets[i].cssRules !== "undefined" ? "cssRules" : "rules";
+        break;
+      } catch (e) {
+        // Cross-domain stylesheets raise SecurityError in Firefox, ignore them.
+        continue;
+      }
+    }
+
+    if (!cssRules) {
+      throw new Error("You do not seem to have any stylesheets which has accessible 'rules' or 'cssRules' property.");
     }
   }
 
@@ -155,6 +168,13 @@
 
     if (cssRules == null) {
       setCssRules();
+    }
+
+    // Ignore Firefox SecurityError. Cross-domain stylesheets will not be processed.
+    try {
+      styleSheet[cssRules] && 1;
+    } catch (e) {
+      return;
     }
 
     if (styleSheet[cssRules] && styleSheet[cssRules].length > 0) {
