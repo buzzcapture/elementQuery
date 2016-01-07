@@ -6,11 +6,14 @@
 
   "use strict";
 
-  var sizzle, queryData, cssRules;
+  var sizzle, queryData, cssRules, selectQuery;
 
   sizzle = window.Sizzle || jQuery.find;
+
   // Set the number of sizzle selectors to cache (default is 50).
   // sizzle.selectors.cacheLength = 50;
+
+  selectQuery = document.querySelectorAll || sizzle;
 
   queryData = {};
   cssRules = null;
@@ -280,7 +283,7 @@
     // For each selector...
     for (i in queryData) {
       // Get the items matching the selector.
-      elements = sizzle(i);
+      elements = selectQuery(i);
 
       if (elements.length > 0) {
         // For each matching element...
