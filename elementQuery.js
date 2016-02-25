@@ -13,7 +13,7 @@
   // Set the number of sizzle selectors to cache (default is 50).
   // sizzle.selectors.cacheLength = 50;
 
-  selectQuery = document.querySelectorAll || sizzle;
+  selectQuery = document.querySelectorAll ? function (selector) { return document.querySelectorAll(selector) } : sizzle;
 
   queryData = {};
   cssRules = null;
