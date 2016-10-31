@@ -7,6 +7,8 @@
     "name": "Tyson Matanich"
   },
 
+  "main": "./elementQuery.js",
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/buzzcapture/elementQuery.git"
