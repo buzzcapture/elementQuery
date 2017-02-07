@@ -8,7 +8,7 @@
 
   var sizzle, queryData, cssRules, selectQuery;
 
-  sizzle = window.Sizzle || jQuery.find;
+  sizzle = window.Sizzle || (jQuery || {}).find;
 
   // Set the number of sizzle selectors to cache (default is 50).
   // sizzle.selectors.cacheLength = 50;
